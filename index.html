@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:azure;
+            text-align: center;
+
+        }
+        h1{
+            font-size: 75px;
+            color:rgb(87, 87, 194) ;
+
+        }
+        button{
+            font-size: 25px;
+            background-color: rgb(167, 106, 224);
+            border: none;
+            border-radius: 5px;
+        }
+        input{
+            font-size: 30px;
+            background-color: rgb(208, 182, 232);
+            margin-right: 20px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+        }
+        h2{
+            font-size: 50px;
+            color:rgb(64, 64, 181) ;
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1> AGE CALCULATOR</h1>
+    <input type="date"  id="birthday">
+    <button onclick="calculate()">CALCULATE</button>
+    <h2 id="result"></h2>
+    <script>
+        function calculate() {
+
+    const birth = new Date(document.getElementById("birthday").value);
+    const today = new Date();
+
+    let age = today.getFullYear() - birth.getFullYear();
+
+    if (today.getMonth() < birth.getMonth() ||
+        (today.getMonth() === birth.getMonth() &&
+        today.getDate() < birth.getDate())) {
+
+        age--;
+    }
+
+    document.getElementById("result").innerHTML =
+        "Your Age is: " + age + " Years";
+}
+    </script>
+</body>
+</html>
